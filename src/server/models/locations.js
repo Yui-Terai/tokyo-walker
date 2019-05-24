@@ -8,7 +8,7 @@ module.exports = (dbPoolInstance) => {
 
   let getAll = (callback) => {
 
-    dbPoolInstance.query('SELECT * from products', (error, queryResult) => {
+    dbPoolInstance.query('SELECT * from locations', (error, queryResult) => {
       if (error) {
         // invoke callback function with results after query has executed
         callback(error, null);
