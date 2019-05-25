@@ -1,8 +1,32 @@
 .carousel-inner > .carousel-item {
-    height: 70vh;
- }
+  max-height: 70vh;
+}
 
- 
 .text {
-    color: red;
+  color: red;
+}
+
+
+.home-page-circle {
+    border-radius: 50%;
+    background: red;
+    height: 200px;
+    width: 200px;    
+    margin: auto;
+}
+
+.comment-initial {
+    margin: 30px;
+}   
+
+
+
+@media only screen and (max-width: 425px) {
+    .home-page-circle {
+        border-radius: 50%;
+        background: red;
+        height: 100px;
+        width: 100px;    
+        margin: auto;
+    }
 }
