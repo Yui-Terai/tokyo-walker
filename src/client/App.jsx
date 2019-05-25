@@ -1,7 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
   
-import Form from './components/form/form';
+import Home from './components/Home/home';
 
 class App extends React.Component {
   constructor() {
@@ -14,7 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Form />
+        <Home />
         Welcome.
       </div>
     );

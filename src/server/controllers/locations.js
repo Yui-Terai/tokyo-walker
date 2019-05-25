@@ -1,6 +1,5 @@
 module.exports = (db) => {
   let getAll = (request, response) => {
-
     db.locations.getAll((error, locations) => {
       // queryResult contains pokemon data returned from the pokemon model
       if (error) {
@@ -13,7 +12,12 @@ module.exports = (db) => {
     });
   };
 
+  // let homeRequest = (request, response) => {
+  //   response.render('../../../Home/home');
+  // };
+
   return {
-    getAll: getAll
+    getAll,
+    homeRequest
   };
 };
