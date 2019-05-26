@@ -1,36 +1,44 @@
+/* home */
 .carousel-inner > .carousel-item {
-  max-height: 70vh;
+  max-height: 100vh;
 }
 
 .text {
   color: red;
 }
 
-.home-page-square {
+.home-page-img {
   height: 200px;
   width: 200px;
   margin: auto;
 }
 
-.comment-initial {
-  margin: 30px;
-}
 
 @media only screen and (min-width: 320px) and (max-width: 425px) {
-  .home-page-square {
+  .home-page-img {
     height: 150px;
     width: 150px;
     margin: auto;
   }
-  .home-page-discover > h1 {
+  .home-page-subtitile > h1 {
     font-size: 30px;
   }
 }
+
+
+.page-footer {
+    background-color: beige;
+}
+
+
+
+/* navbar */
 
 .navbar {
   background-color: beige;
 }
 
-.page-footer {
-    background-color: beige;
+.modal-list {
+    list-style: none;
 }
+
