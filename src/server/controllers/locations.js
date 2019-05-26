@@ -12,12 +12,26 @@ module.exports = (db) => {
     });
   };
 
+
+  let locationsInListRequest = (request, response) => {
+    db.locations.locationsInList(request.params.id, (error, locations) => {
+      if (error) {
+        console.error('error at locationsInListRequest: ', error);
+        response.status(500);
+        response.send('server error');
+      } else {
+        response.send({locations: locations});
+      }
+    });
+  };
+
   // let homeRequest = (request, response) => {
   //   response.render('../../../Home/home');
   // };
 
   return {
     getAll,
-    homeRequest
+    // homeRequest,
+    locationsInListRequest
   };
 };
