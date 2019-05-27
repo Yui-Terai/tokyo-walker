@@ -1,4 +1,29 @@
-.name{
-  padding:5px;
-  margin:20px;
+#homePageCarousel {
+  width: 100vw;
+  height: 90vh;
+}
+
+.text {
+  color: red;
+}
+
+#homePageImg {
+  height: 200px;
+  width: 200px;
+  margin: auto;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+  .homePageImg {
+    height: 150px;
+    width: 150px;
+    margin: auto;
+  }
+  .homePageSubtitle > h1 {
+    font-size: 30px;
+  }
+  #homePageCarousel {
+    min-width: 100vw;
+    height: 40vh;
+  }
 }

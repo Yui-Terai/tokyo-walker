@@ -1,0 +1,15 @@
+#locationInfoImg {
+  height: 70vh;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+  #locationInfoImg {
+    height: 40vh;
+  }
+}
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+  #locationInfoImg {
+    height: 50vh;
+  }
+}
