@@ -1,9 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class LocationsInCategory extends React.Component {
   constructor() {
     super();
   }
+
   render() {
     return (
       <React.Fragment>
@@ -16,7 +18,8 @@ class LocationsInCategory extends React.Component {
                     <h4 className="card-title">{location.name}</h4>
                     <p className="card-text" />
                     <div className="d-flex justify-content-end">
-                      <a href={`/location/${location.id}`}>im link</a>
+                      <Link to={`/location/${location.id}`}>yapiiiii</Link>
+                      {/* <a href={`/location/${location.id}`}>im link</a> */}
                     </div>
                   </div>
                 </div>

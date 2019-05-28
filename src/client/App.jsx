@@ -5,16 +5,14 @@ import Navbar from './components/Shared/navbar';
 import Footer from './components/Shared/footer';
 import Home from './components/Home/home';
 import LocationsInList from './components/LocationsInList/locationsInList';
-// import SelectedLocation from './components/SelectedLocation/selectedLocation';
+import SelectedLocation from './components/SelectedLocation/selectedLocation';
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-    };
+    this.state = {};
     // this.onClickCategory = this.onClickCategory.bind(this);
     // this.getCategoryLists = this.getCategoryLists.bind(this);
   }
-
 
   // onClickCategory(event) {
   //   this.setState({category: event.target.value})
@@ -28,8 +26,6 @@ class App extends React.Component {
   //     .then((json) => this.setState({listsOfLocation: json.product}));
   // }
 
-
-
   // getList(number) {
   //   fetch(`/lists/${number}`)
   //     .then((response) => response.json())
@@ -37,15 +33,15 @@ class App extends React.Component {
   // }
 
   render() {
-    console.log('App state ', this.state);
     return (
       <React.Fragment>
         <Router>
-          <Navbar/>
-          <Route exact path='/' component={Home}/>
-          <Route path='/see' component={LocationsInList}/>
-          <Route path='/eat' component={LocationsInList}/>
-          <Route path='/shopping' component={LocationsInList}/>
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route path="/see" component={LocationsInList} />
+          <Route path="/eat" component={LocationsInList} />
+          <Route path="/shopping" component={LocationsInList} />
+          <Route path="/:id" component={SelectedLocation} />
         </Router>
         {/* <Navbar 
           getCategoryLists={this.getCategoryLists}

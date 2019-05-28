@@ -7,20 +7,36 @@ class LocationsInList extends React.Component {
     super();
     this.state = {
       data: null,
-      category: ''
+      category: '',
+      subCategory: null
     };
   }
 
-  componentDidMount() {
-    fetch(`/category${window.location.pathname}`, {
-      method: 'GET'
-    })
-      .then((response) => response.json())
-      .then((json) => this.setState({data: json}));
 
-    this.setState({category: window.location.pathname});
-    console.log(`im catergory: ${this.state.category}`);
-  }
+  componentDidMount() {
+   Promise.all([fetch(`/category${window.location.pathname}`), fetch('/subcategories')])
+   .then(([res1, res2]) => {
+     return Promise.all([res1.json(), res2.json()])
+   })
+   .then(([res1, res2]) => {
+     this.setState({
+       data: res1,
+       subCategory: res2
+    }) 
+    console.log(this.state);
+     });
+    }
+
+  // componentDidMount() {
+  //   fetch(`/category${window.location.pathname}`, {
+  //     method: 'GET', headers: {'Content-Type': 'text/html; charset=UTF-8'}
+  //   })
+  //     .then((response) => response.json())
+  //     .then((json) => this.setState({data: json}));
+
+  //   this.setState({category: window.location.pathname});
+  //   console.log(`im catergory: ${this.state.category}`);
+  // }
 
   render() {
     console.log('locationsInList State', this.state);
