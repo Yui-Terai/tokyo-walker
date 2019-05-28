@@ -1,36 +1,33 @@
 import React from 'react';
 import styles from './style.scss';
+import LocationsInCategory from './locationsInCategory.jsx';
 
 class LocationsInList extends React.Component {
   // componentDidUpdate(prevProps, props){
   //   console.log(prevProps, props)
   // }
+  constructor() {
+    super();
+    this.state = {
+      data: null
+    };
+  }
 
-  // componentDidMount(){
-  // let listNumber = 0;
-  // switch(window.location.pathname){
-  //   case '/seedo/mustgo':
-  //     listNumber = 1;
-  //     break;
-  //   case 'seedo/templeshrine':
-  //     listNumber = 2;
-  //     break;
-  //   default:
-  //     listNumber = 0;
-  //     break;
-  // }
-  // // fetch(`/lists/seedo/${something}`    )
-  // fetch(`/lists/${listNumber}`)
-  // .then(response => response.json())
-  // .then(json => console.log('json response', json))
-  // }
+  componentDidMount() {
+    fetch(`/category${window.location.pathname}`, {
+      method: 'GET'
+    })
+      .then((response) => response.json())
+      .then((json) => this.setState({data: json}));
+  }
 
   render() {
+    console.log('locationsInList State', this.state);
     return (
       <React.Fragment>
         <div className="jumbotron jumbotron-fluid" id={styles.jumbotron}>
           <div className="container">
-            <h1 className="display - 4">Fluid jumbotron</h1>
+            <h1 className="display - 4" />
           </div>
         </div>
 
@@ -50,7 +47,9 @@ class LocationsInList extends React.Component {
             <div className="col-md-9">
               <div className="container">
                 <div className="row">
-                  <div className="col-md-4 col-lg-3 col-6">
+                  <LocationsInCategory data={this.state.data} />
+
+                  {/* <div className="col-md-4 col-lg-3 col-6">
                     <img
                       className="card-img-top"
                       src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg"
@@ -65,7 +64,7 @@ class LocationsInList extends React.Component {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

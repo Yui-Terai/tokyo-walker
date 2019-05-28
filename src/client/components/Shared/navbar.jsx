@@ -17,17 +17,17 @@ class Navbar extends React.Component {
         <div className="navbar-collapse collapse w-100" id="collapsingNavbar3">
           <ul className="navbar-nav w-100 justify-content-center">
             <li className="nav-item mx-4">
-              <a className="nav-link" href="/category/see">
+              <a className="nav-link" href="/see">
                 See & Do
               </a>
             </li>{' '}
             <li className="nav-item mx-4">
-              <a className="nav-link" href="/category/eat">
+              <a className="nav-link" href="/eat">
                 Eat & Drink
               </a>
             </li>{' '}
             <li className="nav-item mx-4">
-              <a className="nav-link" href="/category/shopping">
+              <a className="nav-link" href="/shopping">
                 Shopping
               </a>
             </li>

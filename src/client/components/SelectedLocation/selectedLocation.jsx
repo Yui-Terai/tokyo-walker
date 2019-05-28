@@ -27,7 +27,7 @@ class SelectedLocation extends React.Component {
               </div>
               <div className="mx-4">
                 <p>
-                 ksfjkshdfg;hw;efh;keghfvjkhwei;vhwjkhfvkjsdhfvjhgsdkjfhvkjsgdvjkgsdjkfgvksjfdhdgfjkshdjkfhehtalsdhcjkahfjkhefgwegvjwgfvjgjg
+                  ksfjkshdfg;hw;efh;keghfvjkhwei;vhwjkhfvkjsdhfvjhgsdkjfhvkjsgdvjkgsdjkfgvksjfdhdgfjkshdjkfhehtalsdhcjkahfjkhefgwegvjwgfvjgjg
                 </p>
               </div>
             </div>

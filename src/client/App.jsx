@@ -1,31 +1,59 @@
 import React from 'react';
 import {hot} from 'react-hot-loader';
-// import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Navbar from './components/Shared/navbar';
 import Footer from './components/Shared/footer';
 import Home from './components/Home/home';
-// import LocationsInList from './components/LocationsInList/locationsInList';
+import LocationsInList from './components/LocationsInList/locationsInList';
 // import SelectedLocation from './components/SelectedLocation/selectedLocation';
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      requestedList: 0,
-      data: null
+      // category: '',
+      // listsOfLocation: []
+      // data: null
     };
+    // this.onClickCategory = this.onClickCategory.bind(this);
+    // this.getCategoryLists = this.getCategoryLists.bind(this);
   }
 
-  getList(number) {
-    fetch(`/lists/${number}`)
-      .then((response) => response.json())
-      .then((json) => this.setState({data: json}));
-  }
+
+  // onClickCategory(event) {
+  //   this.setState({category: event.target.value})
+  //   this.getCategoryLists();
+  // }
+  // getCategoryLists() {
+  //   fetch(`/category/${this.state.category}`, {
+  //     method: 'GET'
+  //   })
+  //     .then((response) => response.json())
+  //     .then((json) => this.setState({listsOfLocation: json.product}));
+  // }
+
+
+
+  // getList(number) {
+  //   fetch(`/lists/${number}`)
+  //     .then((response) => response.json())
+  //     .then((json) => this.setState({data: json}));
+  // }
 
   render() {
+    console.log('App state ', this.state);
     return (
       <React.Fragment>
-        <Navbar />
-        <Home />
+        <Router>
+          <Navbar/>
+          <Route exact path='/' component={Home}/>
+          <Route path='/see' component={LocationsInList}/>
+          <Route path='/eat' component={LocationsInList}/>
+          <Route path='/shopping' component={LocationsInList}/>
+        </Router>
+        {/* <Navbar 
+          getCategoryLists={this.getCategoryLists}
+        /> */}
+        {/* <Home /> */}
         <Footer />
         {/* <LocationsInList /> */}
       </React.Fragment>
