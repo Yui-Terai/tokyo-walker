@@ -10,9 +10,6 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      // category: '',
-      // listsOfLocation: []
-      // data: null
     };
     // this.onClickCategory = this.onClickCategory.bind(this);
     // this.getCategoryLists = this.getCategoryLists.bind(this);

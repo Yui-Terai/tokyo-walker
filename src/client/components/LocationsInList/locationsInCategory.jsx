@@ -1,5 +1,4 @@
 import React from 'react';
-// import styles from './style.scss';
 
 class LocationsInCategory extends React.Component {
   constructor() {
@@ -17,7 +16,7 @@ class LocationsInCategory extends React.Component {
                     <h4 className="card-title">{location.name}</h4>
                     <p className="card-text" />
                     <div className="d-flex justify-content-end">
-                      <a href={`/location${location.id}`}>im link</a>
+                      <a href={`/location/${location.id}`}>im link</a>
                     </div>
                   </div>
                 </div>
