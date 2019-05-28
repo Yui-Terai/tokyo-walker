@@ -26,3 +26,4 @@ CREATE TABLE IF NOT EXISTS list_locations (
     list_id INTEGER,
     location_id INTEGER
 );
+

@@ -1,16 +1,36 @@
 import React from 'react';
-import Navbar from '../Shared/navbar';
-import Footer from '../Shared/footer';
 import styles from './style.scss';
 
 class LocationsInList extends React.Component {
+  // componentDidUpdate(prevProps, props){
+  //   console.log(prevProps, props)
+  // }
+
+  // componentDidMount(){
+  // let listNumber = 0;
+  // switch(window.location.pathname){
+  //   case '/seedo/mustgo':
+  //     listNumber = 1;
+  //     break;
+  //   case 'seedo/templeshrine':
+  //     listNumber = 2;
+  //     break;
+  //   default:
+  //     listNumber = 0;
+  //     break;
+  // }
+  // // fetch(`/lists/seedo/${something}`    )
+  // fetch(`/lists/${listNumber}`)
+  // .then(response => response.json())
+  // .then(json => console.log('json response', json))
+  // }
+
   render() {
     return (
       <React.Fragment>
-        <Navbar />
         <div className="jumbotron jumbotron-fluid" id={styles.jumbotron}>
           <div className="container">
-            <h1 className={styles.display-4}>Fluid jumbotron</h1>
+            <h1 className="display - 4">Fluid jumbotron</h1>
           </div>
         </div>
 
@@ -46,76 +66,11 @@ class LocationsInList extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-lg-3 col-6">
-                    <img
-                      className="card-img-top"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg"
-                      alt="..."
-                    />
-                    <div className="card mb-4">
-                      <div className="card-body">
-                        <h4 className="card-title">Card title</h4>
-                        <p className="card-text" />
-                        <div className="d-flex justify-content-end">
-                          <a href="#">im link</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4 col-lg-3 col-6">
-                    <img
-                      className="card-img-top"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg"
-                      alt="..."
-                    />
-                    <div className="card mb-4">
-                      <div className="card-body">
-                        <h4 className="card-title">Card title</h4>
-                        <p className="card-text" />
-                        <div className="d-flex justify-content-end">
-                          <a href="#">im link</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4 col-lg-3 col-6">
-                    <img
-                      className="card-img-top"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg"
-                      alt="..."
-                    />
-                    <div className="card mb-4">
-                      <div className="card-body">
-                        <h4 className="card-title">Card title</h4>
-                        <p className="card-text" />
-                        <div className="d-flex justify-content-end">
-                          <a href="#">im link</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4 col-lg-3 col-6">
-                    <img
-                      className="card-img-top"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg"
-                      alt="..."
-                    />
-                    <div className="card mb-4">
-                      <div className="card-body">
-                        <h4 className="card-title">Card title</h4>
-                        <p className="card-text" />
-                        <div className="d-flex justify-content-end">
-                          <a href="#">im link</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <Footer />
       </React.Fragment>
     );
   }

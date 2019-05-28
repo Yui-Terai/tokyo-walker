@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import styles from './style.scss';
 
 class Modal extends React.Component {
@@ -17,16 +18,16 @@ class Modal extends React.Component {
               <div className="modal-body">
                 <ul id={styles.modalList}>
                   <li>
-                    <a href="#">Must Go</a>
+                    <NavLink to="/seedo/mustgo">Must Go</NavLink>
                   </li>
                   <li>
-                    <a href="#">Temple & Shrine</a>
+                    <NavLink to="/seedo/templeshrine">Temple & Shrine</NavLink>
                   </li>
                   <li>
-                    <a href="#">Culture</a>
+                    <NavLink to="/seedo/culture">Culture</NavLink>
                   </li>
                   <li>
-                    <a href="#">Entertainment</a>
+                    <NavLink to="/seedo/entertainment">Entertainment</NavLink>
                   </li>
                 </ul>
               </div>
@@ -46,19 +47,19 @@ class Modal extends React.Component {
               <div className="modal-body">
                 <ul id={styles.modalList}>
                   <li>
-                    <a href="#">Must Eat</a>
+                    <NavLink to="/eatdrink/musteat">Must Eat</NavLink>
                   </li>
                   <li>
-                    <a href="#">Tokyo Local Food</a>
+                    <NavLink to="/eatdrink/localfood">Tokyo Local Food</NavLink>
                   </li>
                   <li>
-                    <a href="#">Street Food</a>
+                    <NavLink to="/eatdrink/streetfood">Street Food</NavLink>
                   </li>
                   <li>
-                    <a href="#">Ramen</a>
+                    <NavLink to="/eatdrink/ramen">Ramen</NavLink>
                   </li>
                   <li>
-                    <a href="#">Izakaya & Yoko-cho</a>
+                    <NavLink to="/eatdrink/izakaya">Izakaya & Yoko-cho</NavLink>
                   </li>
                 </ul>
               </div>
@@ -78,10 +79,10 @@ class Modal extends React.Component {
               <div className="modal-body">
                 <ul id={styles.modalList}>
                   <li>
-                    <a href="#">Local Market</a>
+                    <NavLink to="/shopping/local">Local Market</NavLink>
                   </li>
                   <li>
-                    <a href="#">Tax-free</a>
+                    <NavLink to="/shopping/taxfree">Tax-free</NavLink>
                   </li>
                 </ul>
               </div>
@@ -115,5 +116,26 @@ class Modal extends React.Component {
     );
   }
 }
+
+
+
+{/*  <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/seedo/mustgo" render={props => <LocationsInList {...props} list={1}/>} />
+          <Route exact path="/seedo/templeshrine" render={props => <LocationsInList {...props} list={2}/>} />
+          <Route exact path="/seedo/culture" component={LocationsInList} />
+          <Route exact path="/seedo/entertainment" component={LocationsInList} />
+
+          <Route exact path="/eatdrink/musteat" component={LocationsInList} />
+          <Route exact path="/eatdrink/localfood" component={LocationsInList} />
+          <Route exact path="/eatdrink/streetfood" component={LocationsInList} />
+          <Route exact path="/eatdrink/ramen" component={LocationsInList} />
+          <Route exact path="/eatdrink/izakaya" component={LocationsInList} />
+
+          <Route exact path="/shopping/local" component={LocationsInList} />
+          <Route exact path="/shopping/taxfree" component={LocationsInList} />
+        </Switch>
+      </BrowserRouter> */}
 
 export default Modal;

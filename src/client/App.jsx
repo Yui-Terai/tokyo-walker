@@ -1,31 +1,34 @@
 import React from 'react';
 import {hot} from 'react-hot-loader';
-// import Home from './components/Home/home';
-// import  LocationsInList from './components/LocationsInList/locationsInList';
+// import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import Navbar from './components/Shared/navbar';
+import Footer from './components/Shared/footer';
+import Home from './components/Home/home';
+// import LocationsInList from './components/LocationsInList/locationsInList';
 // import SelectedLocation from './components/SelectedLocation/selectedLocation';
 class App extends React.Component {
-  constructor() { 
+  constructor() {
     super();
     this.state = {
-      // view: 'somethingelse'
+      requestedList: 0,
+      data: null
     };
   }
 
-  // showContent() {
-  //   if (this.state.view == 'home') {
-  //     return <Home />;
-  //   } else if (this.state.view == 'somethingelse') {
-  //     return <div>im something else</div>;
-  //   }
-  // }
+  getList(number) {
+    fetch(`/lists/${number}`)
+      .then((response) => response.json())
+      .then((json) => this.setState({data: json}));
+  }
 
   render() {
     return (
-      <div>
-       
-        {/* {this.showContent()} */}
-       
-      </div>
+      <React.Fragment>
+        <Navbar />
+        <Home />
+        <Footer />
+        {/* <LocationsInList /> */}
+      </React.Fragment>
     );
   }
 }
