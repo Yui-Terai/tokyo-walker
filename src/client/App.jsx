@@ -41,7 +41,7 @@ class App extends React.Component {
           <Route path="/see" component={LocationsInList} />
           <Route path="/eat" component={LocationsInList} />
           <Route path="/shopping" component={LocationsInList} />
-          <Route path="/:id" component={SelectedLocation} />
+          <Route path="/location/:id" component={SelectedLocation} />
         </Router>
         {/* <Navbar 
           getCategoryLists={this.getCategoryLists}

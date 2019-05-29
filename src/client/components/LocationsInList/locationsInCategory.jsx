@@ -7,6 +7,7 @@ class LocationsInCategory extends React.Component {
   }
 
   render() {
+    console.log('LocationsInCategory props', this.props)
     return (
       <React.Fragment>
         {this.props.data !== null
@@ -18,7 +19,14 @@ class LocationsInCategory extends React.Component {
                     <h4 className="card-title">{location.name}</h4>
                     <p className="card-text" />
                     <div className="d-flex justify-content-end">
-                      <Link to={`/location/${location.id}`}>yapiiiii</Link>
+                      <Link 
+                        to={{
+                          pathname: `/location/${location.id}`,
+                          data: location
+                        }}
+                      >
+                        yapiiiii
+                      </Link>
                       {/* <a href={`/location/${location.id}`}>im link</a> */}
                     </div>
                   </div>
