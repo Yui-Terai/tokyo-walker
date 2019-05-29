@@ -1,28 +1,50 @@
 import React from 'react';
 import styles from './style.scss';
+
 // import {Redirect} from 'react-router-dom';
 
 class SelectedLocation extends React.Component {
   constructor() {
     super();
+    this.state = {
+      favorited: false
+    };
+  }
+
+  doFavorite(e) {
+    // console.log('Location Props ID', this.props.location.data.id);
+    const locationID = this.props.location.data.id;
+    let currentLocalStorage = JSON.parse(localStorage.getItem('favorite'));
+    // console.log('Current Local Storage', currentLocalStorage);
+
+    if (!currentLocalStorage) {
+      currentLocalStorage = {
+        favorite: []
+      };
+    }
+    let favoritedLocations = currentLocalStorage.favorite;
+    // console.log('favorited locations', favoritedLocations);
+    if (!favoritedLocations.includes(locationID)) {
+      favoritedLocations.push(locationID);
+    }
+    // console.log('Current Local Storage', currentLocalStorage);
+    localStorage.setItem('favorite', JSON.stringify(currentLocalStorage));
+    this.setState({favorited: true});
   }
 
   render() {
     const {
       address,
-      category,
       description,
       fee,
       hotels_nearby,
-      id,
       img,
       jp_name,
-      latitude,
-      longitude,
       name,
       opening_hours,
       website
     } = this.props.location.data;
+    console.log(this.props, 'selected location props', 'favorited', JSON.parse(this.props.location.favorited));
     return (
       <React.Fragment>
         {this.props.location.data !== null ? (
@@ -44,7 +66,11 @@ class SelectedLocation extends React.Component {
               </div>
               <div className="col-md-4 mt-5 pl-5">
                 <div>
-                  <button type="button" className="btn btn-outline-primary">
+                  <button
+                    type="button"
+                    className={this.state.favorited ? 'btn btn-outline-danger' : 'btn btn-outline-primary'}
+                    onClick={(e) => this.doFavorite(e)}
+                  >
                     add to favorite&nbsp;
                     <i className="far fa-heart" />
                   </button>

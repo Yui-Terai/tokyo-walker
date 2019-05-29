@@ -12,20 +12,23 @@ class LocationsInList extends React.Component {
     };
   }
 
-
   componentDidMount() {
-   Promise.all([fetch(`/category${window.location.pathname}`), fetch('/subcategories')])
-   .then(([res1, res2]) => {
-     return Promise.all([res1.json(), res2.json()])
-   })
-   .then(([res1, res2]) => {
-     this.setState({
-       data: res1,
-       subCategory: res2
-    }) 
-    console.log(this.state);
-     });
-    }
+    Promise.all([fetch(`/category${window.location.pathname}`), fetch('/subcategories')])
+      .then(([res1, res2]) => {
+        return Promise.all([res1.json(), res2.json()]);
+      })
+      .then(([res1, res2]) => {
+        this.setState({
+          data: res1,
+          subCategory: res2
+        });
+        // console.log('storage', localStorage);
+
+        // localStorage.setItem('favorited', 1);
+
+        // console.log(this.state);
+      });
+  }
 
   // componentDidMount() {
   //   fetch(`/category${window.location.pathname}`, {

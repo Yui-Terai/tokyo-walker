@@ -22,7 +22,8 @@ class LocationsInCategory extends React.Component {
                       <Link 
                         to={{
                           pathname: `/location/${location.id}`,
-                          data: location
+                          data: location,
+                          favorited: localStorage.getItem('favorite')
                         }}
                       >
                         yapiiiii

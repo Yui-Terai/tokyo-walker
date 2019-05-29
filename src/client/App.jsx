@@ -10,27 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {};
-    // this.onClickCategory = this.onClickCategory.bind(this);
-    // this.getCategoryLists = this.getCategoryLists.bind(this);
   }
-
-  // onClickCategory(event) {
-  //   this.setState({category: event.target.value})
-  //   this.getCategoryLists();
-  // }
-  // getCategoryLists() {
-  //   fetch(`/category/${this.state.category}`, {
-  //     method: 'GET'
-  //   })
-  //     .then((response) => response.json())
-  //     .then((json) => this.setState({listsOfLocation: json.product}));
-  // }
-
-  // getList(number) {
-  //   fetch(`/lists/${number}`)
-  //     .then((response) => response.json())
-  //     .then((json) => this.setState({data: json}));
-  // }
 
   render() {
     return (
@@ -43,12 +23,7 @@ class App extends React.Component {
           <Route path="/shopping" component={LocationsInList} />
           <Route path="/location/:id" component={SelectedLocation} />
         </Router>
-        {/* <Navbar 
-          getCategoryLists={this.getCategoryLists}
-        /> */}
-        {/* <Home /> */}
         <Footer />
-        {/* <LocationsInList /> */}
       </React.Fragment>
     );
   }
