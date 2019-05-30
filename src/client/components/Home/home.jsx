@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './style.scss';
-import homeImg2 from '../../Images/moiz-k-malik-1290267-unsplash.jpg';
+// import homeImg2 from '../../Images/moiz-k-malik-1290267-unsplash.jpg';
+import homeImg2 from '../../Images/eddi-aguirre-611405-unsplash.jpg';
 import homeImg3 from '../../Images/masaaki-komori-580552-unsplash.jpg';
 import homeImg4 from '../../Images/emile-guillemot-1198307-unsplash.jpg';
 

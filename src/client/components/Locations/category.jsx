@@ -1,17 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-class LocationsInCategory extends React.Component {
+
+class Category extends React.Component {
   constructor() {
     super();
   }
 
   render() {
-    console.log('LocationsInCategory props', this.props)
+    console.log('Category props', this.props)
     return (
       <React.Fragment>
         {this.props.data !== null
-          ? this.props.data.locationsInCategory.map((location, index) => (
+          ? this.props.data.categories.map((location, index) => (
               <div key={index} className="col-md-4 col-lg-3 col-6">
                 <img className="card-img-top" src={location.img} alt="..." />
                 <div className="card mb-4">
@@ -23,10 +24,11 @@ class LocationsInCategory extends React.Component {
                         to={{
                           pathname: `/location/${location.id}`,
                           data: location,
-                          favorited: localStorage.getItem('favorite')
+                          favorited: localStorage.getItem('favorite'),
+                          // favoritedButton: localStorage.getItem('favoriteButton')
                         }}
                       >
-                        yapiiiii
+                        click to see >>
                       </Link>
                       {/* <a href={`/location/${location.id}`}>im link</a> */}
                     </div>
@@ -40,4 +42,4 @@ class LocationsInCategory extends React.Component {
   }
 }
 
-export default LocationsInCategory;
+export default Category;

@@ -11,7 +11,7 @@ module.exports = (dbPoolInstance) => {
   //   });
   // };
 
-  let subcategories = (callback) => {
+  let locations = (callback) => {
     let query = 'SELECT * FROM lists';
     dbPoolInstance.query(query, (error, queryResult) => {
       if (error) {
@@ -22,7 +22,7 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
-  let locationsInCategory = (params, callback) => {
+  let categories = (params, callback) => {
     let query = `SELECT * FROM locations WHERE category ILIKE '%${params}%'`;
     dbPoolInstance.query(query, (error, queryResult) => {
       if (error) {
@@ -33,7 +33,7 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
-  let locationsInList = (params, callback) => {
+  let subcategories = (params, callback) => {
     let query = `SELECT * FROM locations INNER JOIN list_locations ON (locations.id = list_locations.location_id) WHERE list_locations.list_id=${params}`;
     dbPoolInstance.query(query, (error, queryResult) => {
       if (error) {
@@ -57,9 +57,9 @@ module.exports = (dbPoolInstance) => {
 
   return {
     // getAll,
+    locations,
+    categories,
     subcategories,
-    locationsInCategory,
-    locationsInList,
     selectedLocation
   };
 };

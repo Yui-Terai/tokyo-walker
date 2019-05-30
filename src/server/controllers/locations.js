@@ -12,42 +12,42 @@ module.exports = (db) => {
   //   });
   // };
 
-  let subcategoriesRequest = (request, response) => {
+  let locationsRequest = (request, response) => {
     // console.log('params from request', request.params);
-    db.locations.subcategories((error, locations) => {
+    db.locations.locations((error, locations) => {
+      if (error) {
+        console.error('error at locationsRequest: ', error);
+        response.status(500);
+        response.send('server error');
+      } else {
+        response.send({locations: locations});
+        console.log('params from request', request.params);
+      }
+    });
+  };
+
+  let categoriesRequest = (request, response) => {
+    // console.log('params from request', request.params);
+    db.locations.categories(request.params.name, (error, locations) => {
+      if (error) {
+        console.error('error at InSubcategoriesRequest: ', error);
+        response.status(500);
+        response.send('server error');
+      } else {
+        response.send({categories: locations});
+        console.log('params from request', request.params);
+      }
+    });
+  };
+
+  let subcategoriesRequest = (request, response) => {
+    db.locations.subcategories(request.params.id, (error, locations) => {
       if (error) {
         console.error('error at subcategoriesRequest: ', error);
         response.status(500);
         response.send('server error');
       } else {
         response.send({subcategories: locations});
-        console.log('params from request', request.params);
-      }
-    });
-  };
-
-  let locationsInCategoryRequest = (request, response) => {
-    // console.log('params from request', request.params);
-    db.locations.locationsInCategory(request.params.name, (error, locations) => {
-      if (error) {
-        console.error('error at locationsInListRequest: ', error);
-        response.status(500);
-        response.send('server error');
-      } else {
-        response.send({locationsInCategory: locations});
-        console.log('params from request', request.params);
-      }
-    });
-  };
-
-  let locationsInListRequest = (request, response) => {
-    db.locations.locationsInList(request.params.id, (error, locations) => {
-      if (error) {
-        console.error('error at locationsInListRequest: ', error);
-        response.status(500);
-        response.send('server error');
-      } else {
-        response.send({locationsInList: locations});
       }
     });
   };
@@ -66,9 +66,9 @@ module.exports = (db) => {
 
   return {
     // getAll,
+    locationsRequest,
+    categoriesRequest,
     subcategoriesRequest,
-    locationsInCategoryRequest,
-    locationsInListRequest,
     selectedLocationRequest
   };
 };

@@ -1,32 +1,29 @@
 import React from 'react';
 import styles from './style.scss';
-import LocationsInCategory from './locationsInCategory.jsx';
+import Category from './category.jsx';
 
-class LocationsInList extends React.Component {
+class Locations extends React.Component {
   constructor() {
     super();
     this.state = {
       data: null,
       category: '',
-      subCategory: null
+      locations: null
     };
   }
 
   componentDidMount() {
-    Promise.all([fetch(`/category${window.location.pathname}`), fetch('/subcategories')])
+    Promise.all([fetch(`/category${window.location.pathname}`), fetch('/locations')])
       .then(([res1, res2]) => {
         return Promise.all([res1.json(), res2.json()]);
       })
       .then(([res1, res2]) => {
         this.setState({
           data: res1,
-          subCategory: res2
+          locations: res2
         });
-        // console.log('storage', localStorage);
 
-        // localStorage.setItem('favorited', 1);
-
-        // console.log(this.state);
+        this.setState({category: window.location.pathname});
       });
   }
 
@@ -42,7 +39,7 @@ class LocationsInList extends React.Component {
   // }
 
   render() {
-    console.log('locationsInList State', this.state);
+    console.log('Locations State', this.state);
     return (
       <React.Fragment>
         <div className="jumbotron jumbotron-fluid" id={styles.jumbotron}>
@@ -80,7 +77,7 @@ class LocationsInList extends React.Component {
             <div className="col-md-9">
               <div className="container">
                 <div className="row">
-                  <LocationsInCategory data={this.state.data} />
+                  <Category data={this.state.data} />
                 </div>
               </div>
             </div>
@@ -91,4 +88,4 @@ class LocationsInList extends React.Component {
   }
 }
 
-export default LocationsInList;
+export default Locations;

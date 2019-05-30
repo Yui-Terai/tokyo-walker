@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Navbar from './components/Shared/navbar';
 import Footer from './components/Shared/footer';
 import Home from './components/Home/home';
-import LocationsInList from './components/LocationsInList/locationsInList';
+import Locations from './components/Locations/locations';
 import SelectedLocation from './components/SelectedLocation/selectedLocation';
 class App extends React.Component {
   constructor() {
@@ -18,9 +18,9 @@ class App extends React.Component {
         <Router>
           <Navbar />
           <Route exact path="/" component={Home} />
-          <Route path="/see" component={LocationsInList} />
-          <Route path="/eat" component={LocationsInList} />
-          <Route path="/shopping" component={LocationsInList} />
+          <Route path="/see" component={Locations} />
+          <Route path="/eat" component={Locations} />
+          <Route path="/shopping" component={Locations} />
           <Route path="/location/:id" component={SelectedLocation} />
         </Router>
         <Footer />

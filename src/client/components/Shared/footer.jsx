@@ -5,11 +5,10 @@ import {MDBCol, MDBContainer, MDBRow, MDBFooter} from 'mdbreact';
 class Footer extends React.Component {
   render() {
     return (
-      <MDBFooter className="font-small pt-4 mt-4" style={{background: 'pink'}}>
+      <MDBFooter className="font-small pt-4 mt-4" style={{background: 'beige'}}>
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol>
-              <div>yesh</div>
             </MDBCol>
           </MDBRow>
         </MDBContainer>

@@ -40,12 +40,7 @@ class Navbar extends React.Component {
           <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Sign Up
+                favorite ❤️
               </a>
             </li>
           </ul>

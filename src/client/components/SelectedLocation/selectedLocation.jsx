@@ -7,12 +7,23 @@ class SelectedLocation extends React.Component {
   constructor() {
     super();
     this.state = {
-      favorited: false
+      favoriteButton: false
     };
   }
 
+  componentDidMount() {
+    const locationID = this.props.location.data.id;
+    var array = JSON.parse(window.localStorage.getItem('favorite'));
+    
+    for (let i = 0; i < array.favorite.length; i++) {
+      if (locationID === array.favorite[i]) {
+        this.setState({favoriteButton: true});
+      }
+    }
+  }
+
   doFavorite(e) {
-    // console.log('Location Props ID', this.props.location.data.id);
+    // const locationID = event.target.id;
     const locationID = this.props.location.data.id;
     let currentLocalStorage = JSON.parse(localStorage.getItem('favorite'));
     // console.log('Current Local Storage', currentLocalStorage);
@@ -27,14 +38,15 @@ class SelectedLocation extends React.Component {
     if (!favoritedLocations.includes(locationID)) {
       favoritedLocations.push(locationID);
     }
-    // console.log('Current Local Storage', currentLocalStorage);
+
     localStorage.setItem('favorite', JSON.stringify(currentLocalStorage));
-    this.setState({favorited: true});
+    this.setState({favoriteButton: true});
   }
 
   render() {
     const {
       address,
+      id,
       description,
       fee,
       hotels_nearby,
@@ -68,10 +80,11 @@ class SelectedLocation extends React.Component {
                 <div>
                   <button
                     type="button"
-                    className={this.state.favorited ? 'btn btn-outline-danger' : 'btn btn-outline-primary'}
+                    className={this.state.favoriteButton ? 'btn btn-outline-danger' : 'btn btn-outline-primary'}
                     onClick={(e) => this.doFavorite(e)}
+                    id={id}
                   >
-                    add to favorite&nbsp;
+                    favorite&nbsp;
                     <i className="far fa-heart" />
                   </button>
                 </div>
