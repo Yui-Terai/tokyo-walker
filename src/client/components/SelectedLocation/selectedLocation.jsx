@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './style.scss';
-
 // import {Redirect} from 'react-router-dom';
 
 class SelectedLocation extends React.Component {
@@ -12,14 +11,13 @@ class SelectedLocation extends React.Component {
   }
 
   componentDidMount() {
-    console.log(`im state favoritedLocations: ${this.state.favoritedLocations}`);
     const locationID = this.props.location.data.id;
-    // let array = JSON.parse(this.props.location.favorited);
     let array = JSON.parse(localStorage.getItem('favorite'));
-
-    for (let i = 0; i < array.favorite.length; i++) {
-      if (locationID === array.favorite[i].id) {
-        this.setState({favoriteButton: true});
+    if (array !== null) {
+      for (let i = 0; i < array.favorite.length; i++) {
+        if (locationID === array.favorite[i].id) {
+          this.setState({favoriteButton: true});
+        }
       }
     }
   }
@@ -33,7 +31,6 @@ class SelectedLocation extends React.Component {
       img: locationInfo.img,
       address: locationInfo.address
     };
-    console.log('im favoritedLocation: ', favoritedLocation.id, favoritedLocation.name);
 
     let currentLocalStorage = JSON.parse(localStorage.getItem('favorite'));
     if (!currentLocalStorage) {
@@ -50,29 +47,9 @@ class SelectedLocation extends React.Component {
 
     localStorage.setItem('favorite', JSON.stringify(currentLocalStorage));
     this.setState({favoriteButton: true});
+
     // localStorage.removeItem('favorite');
   }
-
-  // doFavorite(e) {
-  //   const locationID = this.props.location.data.id;
-
-  //   let currentLocalStorage = JSON.parse(localStorage.getItem('favorite'));
-  //   console.log('Current Local Storage', currentLocalStorage);
-
-  //   if (!currentLocalStorage) {
-  //     currentLocalStorage = {
-  //       favorite: []
-  //     };
-  //   }
-  //   let favoritedLocations = currentLocalStorage.favorite;
-
-  //   if (!favoritedLocations.includes(locationID)) {
-  //     favoritedLocations.push(locationID);
-  //   }
-
-  //   localStorage.setItem('favorite', JSON.stringify(currentLocalStorage));
-  //   this.setState({favoriteButton: true});
-  // }
 
   render() {
     const {

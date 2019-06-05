@@ -1,20 +1,42 @@
-// import React from 'react';
+import React from 'react';
+import styles from './style.scss';
 
+class Favorite extends React.Component {
+  constructor() {
+    super();
+    const favoriteLocations = JSON.parse(localStorage.getItem('favorite'));
+    this.state = {
+      favoriteLocations: favoriteLocations
+    };
+  }
 
-// class Favorite extends React.Component {
-//   componentDidMount() {
-//     fetch('/show/location/:id')
-//     .then(function(response) {
-//       return response.json();
-//     })
-//     .then(function(myJson) {
-//       console.log(JSON.stringify(myJson));
-//     });
-//   }
-//   render() {
-//     return (
+  render() {
+    let favoriteLocations;
 
-//     )
-//   }
-// }
-// export default Favorite;
+    if (this.state.favoriteLocations) {
+      favoriteLocations = this.state.favoriteLocations.favorite.map((location, index) => {
+        return (
+          <div className="row">
+            <div className="col-4">
+              <img className={styles.favoriteLocationImg} src={location.img} />
+            </div>
+
+            <div className="col-8">
+              <h2>{location.name}</h2>
+              <h5>{location.jp_name}</h5>
+              <p>{location.address}</p>
+            </div>
+          </div>
+        );
+      });
+    } else {
+      favoriteLocations = null;
+    }
+    return (
+      <React.Fragment>
+        <div className="container mt-5">{favoriteLocations}</div>
+      </React.Fragment>
+    );
+  }
+}
+export default Favorite;

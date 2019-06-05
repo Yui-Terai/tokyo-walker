@@ -27,17 +27,6 @@ class Locations extends React.Component {
       });
   }
 
-  // componentDidMount() {
-  //   fetch(`/category${window.location.pathname}`, {
-  //     method: 'GET', headers: {'Content-Type': 'text/html; charset=UTF-8'}
-  //   })
-  //     .then((response) => response.json())
-  //     .then((json) => this.setState({data: json}));
-
-  //   this.setState({category: window.location.pathname});
-  //   console.log(`im catergory: ${this.state.category}`);
-  // }
-
   render() {
     console.log('Locations State', this.state);
     return (
@@ -64,7 +53,7 @@ class Locations extends React.Component {
         <div className="container mt-5">
           <div className="row">
             <div className="col-md-3 mb-5">
-              <form className="form-inline">
+              {/* <form className="form-inline">
                 <i className="fas fa-search" aria-hidden="true" />
                 <div>
                 <input
@@ -83,7 +72,7 @@ class Locations extends React.Component {
                 <div>
                 <input type="checkbox" name="vehicle3" value="Boat" checked /> museum
                 </div>
-              </form>
+              </form> */}
             </div>
             <div className="col-md-9">
               <div className="container">

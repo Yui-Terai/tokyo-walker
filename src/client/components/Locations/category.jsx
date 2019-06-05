@@ -1,14 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-
 class Category extends React.Component {
   constructor() {
     super();
   }
 
   render() {
-    console.log('Category props', this.props)
+    console.log('Category props', this.props);
     return (
       <React.Fragment>
         {this.props.data !== null
@@ -20,7 +19,7 @@ class Category extends React.Component {
                     <h4 className="card-title">{location.name}</h4>
                     <p className="card-text" />
                     <div className="d-flex justify-content-end">
-                      <Link 
+                      <Link
                         to={{
                           pathname: `/location/${location.id}`,
                           data: location,
@@ -29,7 +28,6 @@ class Category extends React.Component {
                       >
                         click to see >>
                       </Link>
-                      {/* <a href={`/location/${location.id}`}>im link</a> */}
                     </div>
                   </div>
                 </div>
