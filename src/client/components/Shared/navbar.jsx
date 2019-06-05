@@ -39,7 +39,7 @@ class Navbar extends React.Component {
           </ul>
           <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/favorite">
                 favorite ❤️
               </a>
             </li>

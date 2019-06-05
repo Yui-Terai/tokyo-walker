@@ -24,8 +24,7 @@ class Category extends React.Component {
                         to={{
                           pathname: `/location/${location.id}`,
                           data: location,
-                          favorited: localStorage.getItem('favorite'),
-                          // favoritedButton: localStorage.getItem('favoriteButton')
+                          favorited: localStorage.getItem('favorite')
                         }}
                       >
                         click to see >>

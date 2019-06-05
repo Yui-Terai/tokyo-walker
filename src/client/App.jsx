@@ -5,6 +5,7 @@ import Navbar from './components/Shared/navbar';
 import Footer from './components/Shared/footer';
 import Home from './components/Home/home';
 import Locations from './components/Locations/locations';
+import Favorite from './components/Favorite/favorite';
 import SelectedLocation from './components/SelectedLocation/selectedLocation';
 class App extends React.Component {
   constructor() {
@@ -21,6 +22,7 @@ class App extends React.Component {
           <Route path="/see" component={Locations} />
           <Route path="/eat" component={Locations} />
           <Route path="/shopping" component={Locations} />
+          <Route path="/favorite" component={Favorite} />
           <Route path="/location/:id" component={SelectedLocation} />
         </Router>
         <Footer />
