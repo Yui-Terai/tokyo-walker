@@ -26,7 +26,8 @@ class Category extends React.Component {
                           favorited: localStorage.getItem('favorite')
                         }}
                       >
-                        click to see >>
+                        See more info&nbsp;
+                        <i className="fas fa-chevron-circle-right" />
                       </Link>
                     </div>
                   </div>

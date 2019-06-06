@@ -86,16 +86,12 @@ class SelectedLocation extends React.Component {
               </div>
               <div className="col-md-4 mt-5 pl-5">
                 <div>
-                  <button
-                    type="button"
-                    className={this.state.favoriteButton ? 'btn btn-outline-danger' : 'btn btn-outline-primary'}
-                    onClick={(e) => this.doFavorite(e)}
-                    id={id}
-                  >
-                    favorite&nbsp;
-                    <i className="far fa-heart" />
+                  <button type="button" className="btn btn-outline-primary" onClick={(e) => this.doFavorite(e)} id={id}>
+                    <i className="fas fa-heart" style={this.state.favoriteButton ? {color: 'red'} : {color: 'blue'}} />
+                    &nbsp;Favorite
                   </button>
                 </div>
+                <br />
                 <div>
                   <p>📍{address}</p>
                 </div>
@@ -107,12 +103,12 @@ class SelectedLocation extends React.Component {
                 </div>
                 <div>
                   <p>
-                    💻<a href={website}>website</a>
+                    💻<a href={website} className={styles.websiteLink}>Website</a>
                   </p>
                 </div>
                 <div>
                   <a className="btn btn-warning" href={hotels_nearby} role="button">
-                    see hotels nearby&nbsp;
+                    See hotels nearby&nbsp;
                     <i className="fas fa-chevron-circle-right" />
                   </a>
                 </div>

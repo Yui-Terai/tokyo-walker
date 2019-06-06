@@ -5,3 +5,13 @@
 #modalList {
   list-style: none outside none;
 }
+
+.footer {
+  display: block;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  background-color: red;
+  color: black;
+}
