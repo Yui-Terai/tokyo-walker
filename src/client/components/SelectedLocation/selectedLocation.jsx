@@ -1,16 +1,19 @@
 import React from 'react';
 import styles from './style.scss';
-// import {Redirect} from 'react-router-dom';
+import GoogleMap from './googleMap';
 
 class SelectedLocation extends React.Component {
   constructor() {
     super();
     this.state = {
-      favoriteButton: false
+      favoriteButton: false,
+      lat: null,
+      lng: null
     };
   }
 
   componentDidMount() {
+    this.setState({lat: this.props.location.data.latitude, lng: this.props.location.data.longitude});
     const locationID = this.props.location.data.id;
     let array = JSON.parse(localStorage.getItem('favorite'));
     if (array !== null) {
@@ -47,8 +50,6 @@ class SelectedLocation extends React.Component {
 
     localStorage.setItem('favorite', JSON.stringify(currentLocalStorage));
     this.setState({favoriteButton: true});
-
-    // localStorage.removeItem('favorite');
   }
 
   render() {
@@ -103,7 +104,10 @@ class SelectedLocation extends React.Component {
                 </div>
                 <div>
                   <p>
-                    💻<a href={website} className={styles.websiteLink}>Website</a>
+                    💻
+                    <a href={website} className={styles.websiteLink}>
+                      Website
+                    </a>
                   </p>
                 </div>
                 <div>
@@ -112,6 +116,7 @@ class SelectedLocation extends React.Component {
                     <i className="fas fa-chevron-circle-right" />
                   </a>
                 </div>
+                <GoogleMap lat={this.state.lat} lng={this.state.lng}/>
               </div>
             </div>
           </div>

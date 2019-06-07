@@ -7,6 +7,7 @@ import Home from './components/Home/home';
 import Locations from './components/Locations/locations';
 import Favorite from './components/Favorite/favorite';
 import SelectedLocation from './components/SelectedLocation/selectedLocation';
+// import { GoogleMap } from './components/SelectedLocation/googleMap';
 class App extends React.Component {
   constructor() {
     super();
