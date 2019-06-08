@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS locations (
 
 CREATE TABLE IF NOT EXISTS lists (
     id SERIAL PRIMARY KEY,
+    category TEXT,
     list_group TEXT
 );
 
@@ -26,4 +27,5 @@ CREATE TABLE IF NOT EXISTS list_locations (
     list_id INTEGER,
     location_id INTEGER
 );
+
 

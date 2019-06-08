@@ -24,19 +24,19 @@ INSERT INTO locations (category, name, jp_name, img, description, address, openi
 
 
 
-INSERT INTO lists (list_group) VALUES ('must go');
-INSERT INTO lists (list_group) VALUES ('temple&shrine');
-INSERT INTO lists (list_group) VALUES ('culture');
-INSERT INTO lists (list_group) VALUES ('entertainment');
+INSERT INTO lists (category, list_group) VALUES ('see','must go');
+INSERT INTO lists (category, list_group) VALUES ('see','temple&shrine');
+INSERT INTO lists (category, list_group) VALUES ('see','culture');
+INSERT INTO lists (category, list_group) VALUES ('see','entertainment');
 
-INSERT INTO lists (list_group) VALUES ('must eat');
-INSERT INTO lists (list_group) VALUES ('tokyo local food');
-INSERT INTO lists (list_group) VALUES ('street food');
-INSERT INTO lists (list_group) VALUES ('ramen');
-INSERT INTO lists (list_group) VALUES ('izakaya&yokocho');
+INSERT INTO lists (category, list_group) VALUES ('eat','must eat');
+INSERT INTO lists (category, list_group) VALUES ('eat','tokyo local food');
+INSERT INTO lists (category, list_group) VALUES ('eat','street food');
+INSERT INTO lists (category, list_group) VALUES ('eat','ramen');
+INSERT INTO lists (category, list_group) VALUES ('eat','izakaya&yokocho');
 
-INSERT INTO lists (list_group) VALUES ('local market');
-INSERT INTO lists (list_group) VALUES ('tax-free');
+INSERT INTO lists (category, list_group) VALUES ('shopping','local market');
+INSERT INTO lists (category, list_group) VALUES ('shopping','tax-free');
 
 
 

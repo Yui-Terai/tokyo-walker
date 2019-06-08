@@ -12,15 +12,15 @@ module.exports = (db) => {
   //   });
   // };
 
-  let locationsRequest = (request, response) => {
+  let listsRequest = (request, response) => {
     // console.log('params from request', request.params);
-    db.locations.locations((error, locations) => {
+    db.locations.lists(request.params.category, (error, locations) => {
       if (error) {
         console.error('error at locationsRequest: ', error);
         response.status(500);
         response.send('server error');
       } else {
-        response.send({locations: locations});
+        response.send({lists: locations});
         console.log('params from request', request.params);
       }
     });
@@ -30,7 +30,7 @@ module.exports = (db) => {
     // console.log('params from request', request.params);
     db.locations.categories(request.params.name, (error, locations) => {
       if (error) {
-        console.error('error at InSubcategoriesRequest: ', error);
+        console.error('error at categoriesRequest: ', error);
         response.status(500);
         response.send('server error');
       } else {
@@ -66,7 +66,7 @@ module.exports = (db) => {
 
   return {
     // getAll,
-    locationsRequest,
+    listsRequest,
     categoriesRequest,
     subcategoriesRequest,
     selectedLocationRequest

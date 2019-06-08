@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './style.scss';
+// import styles from './style.scss';
 import Category from './category.jsx';
+import Jumbotron from './jumbotron.jsx';
 
 class Locations extends React.Component {
   constructor() {
@@ -8,19 +9,19 @@ class Locations extends React.Component {
     this.state = {
       data: null,
       category: '',
-      locations: null
+      lists: null
     };
   }
 
   componentDidMount() {
-    Promise.all([fetch(`/category${window.location.pathname}`), fetch('/locations')])
+    Promise.all([fetch(`/category${window.location.pathname}`), fetch(`/lists${window.location.pathname}`)])
       .then(([res1, res2]) => {
         return Promise.all([res1.json(), res2.json()]);
       })
       .then(([res1, res2]) => {
         this.setState({
           data: res1,
-          locations: res2
+          lists: res2
         });
 
         this.setState({category: window.location.pathname});
@@ -31,25 +32,7 @@ class Locations extends React.Component {
     console.log('Locations State', this.state);
     return (
       <React.Fragment>
-        <div className="jumbotron jumbotron-fluid" id={styles.jumbotron}>
-          <div className="container">
-            <h1 className="display-4">
-              {(() => {
-                switch (this.state.category) {
-                  case '/see':
-                    return 'SEE & DO';
-                  case '/eat':
-                    return 'EAT & DRINK';
-                  case '/shopping':
-                    return 'SHOPPING';
-                  default:
-                    return null;
-                }
-              })()}{' '}
-            </h1>
-          </div>
-        </div>
-
+        <Jumbotron category={this.state.category} />
         <div className="container mt-5">
           <div className="row">
             <div className="col-md-3 mb-5">

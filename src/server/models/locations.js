@@ -11,8 +11,8 @@ module.exports = (dbPoolInstance) => {
   //   });
   // };
 
-  let locations = (callback) => {
-    let query = 'SELECT * FROM lists';
+  let lists = (params, callback) => {
+    let query = `SELECT * FROM lists WHERE category ILIKE '%${params}%'`;
     dbPoolInstance.query(query, (error, queryResult) => {
       if (error) {
         callback(error, null);
@@ -57,7 +57,7 @@ module.exports = (dbPoolInstance) => {
 
   return {
     // getAll,
-    locations,
+    lists,
     categories,
     subcategories,
     selectedLocation
