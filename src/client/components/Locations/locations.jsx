@@ -11,7 +11,7 @@ class Locations extends React.Component {
       data: null,
       lists: null,
       category: '',
-      subCategoryID: null,
+      subCategoryID: null
       // isChecked: false
     };
     this.handleChecked = this.handleChecked.bind(this);

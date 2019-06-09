@@ -1,15 +1,13 @@
 module.exports = (dbPoolInstance) => {
-  // // `dbPoolInstance` is accessible within this function scope
-  // let getAll = (callback) => {
-  //   dbPoolInstance.query('SELECT * from locations', (error, queryResult) => {
-  //     if (error) {
-  //       // invoke callback function with results after query has executed
-  //       callback(error, null);
-  //     } else {
-  //       callback(null, queryResult.rows);
-  //     }
-  //   });
-  // };
+  let locations = (callback) => {
+    dbPoolInstance.query('SELECT * from locations', (error, queryResult) => {
+      if (error) {
+        callback(error, null);
+      } else {
+        callback(null, queryResult.rows);
+      }
+    });
+  };
 
   let lists = (params, callback) => {
     let query = `SELECT * FROM lists WHERE category ILIKE '%${params}%'`;
@@ -56,7 +54,7 @@ module.exports = (dbPoolInstance) => {
   };
 
   return {
-    // getAll,
+    locations,
     lists,
     categories,
     subcategories,

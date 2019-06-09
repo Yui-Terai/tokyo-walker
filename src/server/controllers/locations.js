@@ -1,16 +1,15 @@
 module.exports = (db) => {
-  // let getAll = (request, response) => {
-  //   db.locations.getAll((error, locations) => {
-  //     // queryResult contains pokemon data returned from the pokemon model
-  //     if (error) {
-  //       console.error('error getting pokemon', error);
-  //       response.status(500);
-  //       response.send('server error');
-  //     } else {
-  //       response.send({locations: locations});
-  //     }
-  //   });
-  // };
+  let locationsRequest = (request, response) => {
+    db.locations.locations((error, locations) => {
+      if (error) {
+        console.error('error at locationsRequest', error);
+        response.status(500);
+        response.send('server error');
+      } else {
+        response.send({locations: locations});
+      }
+    });
+  };
 
   let listsRequest = (request, response) => {
     // console.log('params from request', request.params);
@@ -65,7 +64,7 @@ module.exports = (db) => {
   };
 
   return {
-    // getAll,
+    locationsRequest,
     listsRequest,
     categoriesRequest,
     subcategoriesRequest,
