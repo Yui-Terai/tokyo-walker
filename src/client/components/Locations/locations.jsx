@@ -2,15 +2,19 @@ import React from 'react';
 // import styles from './style.scss';
 import Category from './category.jsx';
 import Jumbotron from './jumbotron.jsx';
+import Checkbox from './checkbox.jsx';
 
 class Locations extends React.Component {
   constructor() {
     super();
     this.state = {
       data: null,
+      lists: null,
       category: '',
-      lists: null
+      subCategoryID: null,
+      // isChecked: false
     };
+    this.handleChecked = this.handleChecked.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +32,21 @@ class Locations extends React.Component {
       });
   }
 
+  handleChecked(event) {
+    event.preventDefault();
+    let subCategoryID = parseInt(event.target.value);
+    this.setState({subCategoryID: subCategoryID});
+    fetch(`/subcategory/${this.state.subCategoryID}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        Accept: '*/*'
+      }
+    })
+      .then((response) => response.json())
+      .then((json) => this.setState({data: json}));
+  }
+
   render() {
     console.log('Locations State', this.state);
     return (
@@ -36,26 +55,12 @@ class Locations extends React.Component {
         <div className="container mt-5">
           <div className="row">
             <div className="col-md-3 mb-5">
-              {/* <form className="form-inline">
-                <i className="fas fa-search" aria-hidden="true" />
-                <div>
-                <input
-                  className="form-control form-control-sm ml-3 w-75"
-                  type="text"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                </div>
-                <div>
-                <input type="checkbox" name="vehicle1" value="Bike" /> must see
-                </div>
-                <div>
-                <input type="checkbox" name="vehicle2" value="Car" /> temple&shrine
-                </div>
-                <div>
-                <input type="checkbox" name="vehicle3" value="Boat" checked /> museum
-                </div>
-              </form> */}
+              <Checkbox
+                lists={this.state.lists}
+                data={this.state.data}
+                handleChecked={this.handleChecked}
+                isChecked={this.state.isChecked}
+              />
             </div>
             <div className="col-md-9">
               <div className="container">

@@ -47,7 +47,7 @@ module.exports = (db) => {
         response.status(500);
         response.send('server error');
       } else {
-        response.send({subcategories: locations});
+        response.send({categories: locations});
       }
     });
   };
