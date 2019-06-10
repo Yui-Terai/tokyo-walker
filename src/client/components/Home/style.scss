@@ -45,6 +45,16 @@
     color: white;
     font-size: 15px;
   }
+
+  .homeH1 {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 767.98px) {
+  .homeH1 {
+    font-size: 40px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1199.98px) {
@@ -62,6 +72,16 @@
     color: white;
     font-size: 20px;
   }
+
+  .homeH1 {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .homeH1 {
+    font-size: 50px;
+  }
 }
 
 #font {
@@ -71,4 +91,3 @@
 #font2 {
   font-family: 'Roboto Condensed', sans-serif;
 }
-

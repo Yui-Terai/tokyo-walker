@@ -58,7 +58,7 @@ class Home extends React.Component {
         <Carousel />
 
         <div className="homeTitleExplore text-center mt-5 mb-3" id={styles.font2}>
-          <h1 style={{fontSize: '50px'}}>Explore The City</h1>
+          <h1 className={styles.homeH1}>Explore The City</h1>
         </div>
 
         <div className="container mt-4 mb-5">
