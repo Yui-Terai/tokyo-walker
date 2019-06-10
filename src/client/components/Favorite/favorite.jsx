@@ -24,34 +24,47 @@ class Favorite extends React.Component {
     if (this.state.favoriteLocations) {
       favoriteLocations = this.state.favoriteLocations.favorite.map((location, index) => {
         return (
-          <div key={index} className="row">
-            <div className="col-3">
-              <img className={styles.favoriteLocationImg} src={location.img} />
-            </div>
-
-            <div className="col-7">
-              <h2>{location.name}</h2>
-              <h5>{location.jp_name}</h5>
-              <p>{location.address}</p>
-              <Link
-                to={{
-                  pathname: `/location/${location.id}`,
-                  data: location,
-                  favorited: localStorage.getItem('favorite')
-                }}
-              >
-                click to see >>
-              </Link>
-            </div>
-            <div className="col-2">
-              <button
-                className="btn"
-                onClick={() => {
-                  this.removeFromFavorite(index);
-                }}
-              >
-                <i className="fas fa-trash-alt" />
-              </button>
+          <div key={index} className="container" id={styles.font}>
+            <div className="card m-3">
+              <div className="row">
+                <div className="col-md-8">
+                  <div className="card-body px-6 w-100">
+                    <h3 className="card-title">{location.name}</h3>
+                    <p className="card-text" style={{fontSize: '14px'}}>
+                      📍{location.address}
+                    </p>
+                    <Link
+                      to={{
+                        pathname: `/location/${location.id}`,
+                        data: location,
+                        favorited: localStorage.getItem('favorite'),
+                        lat: this.props.lat,
+                        lng: this.props.lng
+                      }}
+                      style={{color: 'black'}}
+                    >
+                      Check It&nbsp;
+                      <i className="fas fa-chevron-circle-right" style={{color: '#FFC64A'}} />
+                    </Link>
+                    <div
+                      className="d-flex justify-content-center align-items-start text-center mt-3"
+                      id={styles.favoriteBin}
+                    >
+                      <button
+                        className="btn"
+                        onClick={() => {
+                          this.removeFromFavorite(index);
+                        }}
+                      >
+                        <i className="fas fa-trash-alt" style={{color: 'white'}} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <img className={styles.favoriteLocationImg} src={location.img} />
+                </div>
+              </div>
             </div>
           </div>
         );
@@ -61,7 +74,9 @@ class Favorite extends React.Component {
     }
     return (
       <React.Fragment>
-        <div className="container mt-5">{favoriteLocations}</div>
+        <div className="container" id={styles.favoriteContainer}>
+          {favoriteLocations}
+        </div>
       </React.Fragment>
     );
   }

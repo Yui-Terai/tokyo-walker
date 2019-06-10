@@ -1,13 +1,14 @@
 import React from 'react';
 import {hot} from 'react-hot-loader';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+// import GoogleFontLoader from 'react-google-font-loader';
 import Navbar from './components/Shared/navbar';
-import Footer from './components/Shared/footer';
+// import Footer from './components/Shared/footer';
 import Home from './components/Home/home';
 import Locations from './components/Locations/locations';
 import Favorite from './components/Favorite/favorite';
 import SelectedLocation from './components/SelectedLocation/selectedLocation';
-// import { GoogleMap } from './components/SelectedLocation/googleMap';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -17,7 +18,15 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+        
         <Router>
+        {/* <GoogleFontLoader
+          fonts={[
+            {
+              font: 'Bungee Inline'
+            }
+          ]}
+        /> */}
           <Navbar />
           <Route exact path="/" component={Home} />
           <Route path="/see" component={Locations} />
@@ -26,7 +35,7 @@ class App extends React.Component {
           <Route path="/favorite" component={Favorite} />
           <Route path="/location/:id" component={SelectedLocation} />
         </Router>
-        <Footer />
+        {/* <Footer /> */}
       </React.Fragment>
     );
   }

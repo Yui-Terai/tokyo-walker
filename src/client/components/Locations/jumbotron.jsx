@@ -8,7 +8,7 @@ class Jumbotron extends React.Component {
 
   render() {
     return (
-      <div className="jumbotron jumbotron-fluid" id={styles.jumbotron}>
+      <div className="jumbotron jumbotron-fluid mt-5" id={styles.jumbotron}>
         <div className="container">
           <h1 className="display-4">
             {(() => {

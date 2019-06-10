@@ -29,10 +29,15 @@ class SelectedLocation extends React.Component {
     const locationInfo = this.props.location.data;
     const favoritedLocation = {
       id: locationInfo.id,
+      description: locationInfo.description,
       name: locationInfo.name,
       jp_name: locationInfo.jp_name,
       img: locationInfo.img,
-      address: locationInfo.address
+      address: locationInfo.address,
+      fee: locationInfo.fee,
+      opening_hours: locationInfo.opening_hours,
+      website: locationInfo.website,
+      hotels_nearby: locationInfo.hotels_nearby
     };
 
     let currentLocalStorage = JSON.parse(localStorage.getItem('favorite'));
@@ -69,25 +74,25 @@ class SelectedLocation extends React.Component {
     return (
       <React.Fragment>
         {this.props.location.data !== null ? (
-          <div className="container my-5 pt-5">
+          <div className="container my-5 pt-5" id={styles.font}>
             <div className="row">
               <div className="col-md-8">
                 <div>
                   <img className="w-100" id={styles.locationInfoImg} src={img} alt="..." />
                 </div>
-                <div className="mx-3 mt-3 mb-1">
+                <div className="mx-4 mt-3">
                   <h1>{name}</h1>
                 </div>
-                <div className="mx-4 mt-1 mb-5">
-                  <h4>{jp_name}</h4>
+                <div className="mx-4 mb-4">
+                  <p>({jp_name})</p>
                 </div>
                 <div className="mx-4">
                   <p>{description}</p>
                 </div>
               </div>
-              <div className="col-md-4 mt-5 pl-5">
+              <div className="col-md-4 mt-3 pl-5">
                 <div>
-                  <button type="button" className="btn btn-outline-primary" onClick={(e) => this.doFavorite(e)} id={id}>
+                  <button type="button" className="btn btn-outline-dark" onClick={(e) => this.doFavorite(e)} id={id}>
                     <i className="fas fa-heart" style={this.state.favoriteButton ? {color: 'red'} : {color: 'blue'}} />
                     &nbsp;Favorite
                   </button>
@@ -104,7 +109,7 @@ class SelectedLocation extends React.Component {
                 </div>
                 <div>
                   <p>
-                    💻
+                    🔗
                     <a href={website} className={styles.websiteLink}>
                       Website
                     </a>
@@ -116,7 +121,8 @@ class SelectedLocation extends React.Component {
                     <i className="fas fa-chevron-circle-right" />
                   </a>
                 </div>
-                <GoogleMap lat={this.state.lat} lng={this.state.lng}/>
+                <br />
+                <GoogleMap lat={this.state.lat} lng={this.state.lng} />
               </div>
             </div>
           </div>

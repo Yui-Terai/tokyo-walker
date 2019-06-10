@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './style.scss';
+import {Link} from 'react-router-dom';
 import Carousel from './carousel.jsx';
 
 class Home extends React.Component {
@@ -35,9 +36,16 @@ class Home extends React.Component {
               id={styles.homePageImg}
             >
               <img className="d-block w-100 h-100" src={location.img} alt="..." />
-              <a className="align-items-center text-center position-absolute w-75" href="#">
-                {location.name}
-              </a>
+              <Link
+                to={{
+                  pathname: `/location/${location.id}`,
+                  data: location,
+                  favorited: localStorage.getItem('favorite')
+                }}
+                className={styles.homeTextOnImg}
+              >
+                <b>{location.name}</b>
+              </Link>
             </div>
           </div>
         );
@@ -46,11 +54,11 @@ class Home extends React.Component {
       locations = null;
     }
     return (
-      <div className="bd-example">
+      <div className="bd-example" id={styles.font}>
         <Carousel />
 
-        <div className="homePageSubtitle text-center mt-5 mb-3">
-          <h1>discover things</h1>
+        <div className="homeTitleExplore text-center mt-5 mb-3" id={styles.font2}>
+          <h1 style={{fontSize: '50px'}}>Explore The City</h1>
         </div>
 
         <div className="container mt-4 mb-5">

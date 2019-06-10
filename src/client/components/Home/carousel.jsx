@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from './style.scss';
-// import homeImg2 from '../../Images/moiz-k-malik-1290267-unsplash.jpg';
-import homeImg2 from '../../Images/eddi-aguirre-611405-unsplash.jpg';
-import homeImg3 from '../../Images/masaaki-komori-580552-unsplash.jpg';
-import homeImg4 from '../../Images/emile-guillemot-1198307-unsplash.jpg';
+import homeImg1 from '../../Images/louie-martinez-482218-unsplash.jpg';
+import homeImg2 from '../../Images/hari-panicker-1593166-unsplash.jpg';
+import homeImg3 from '../../Images/jezael-melgoza-1355992-unsplash.jpg';
 
 class Carousel extends React.Component {
   render() {
     return (
-      <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel">
+      <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel" data-interval="3000">
         <ol className="carousel-indicators">
           <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active" />
           <li data-target="#carouselExampleCaptions" data-slide-to="1" />
@@ -16,24 +15,21 @@ class Carousel extends React.Component {
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={homeImg2} className="d-block" alt="..." id={styles.homePageCarousel} />
+            <img src={homeImg1} className="d-block" alt="..." id={styles.homePageCarousel} />
             <div className="carousel-caption d-none d-lg-block">
               <h1 className={styles.text}>Walk Around In Tokyo</h1>
-              <a>here is iink</a>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img src={homeImg2} className="d-block" alt="..." id={styles.homePageCarousel} />
+            <div className="carousel-caption d-none d-lg-block">
+              <h1 className={styles.text}>Discover Tasty Food In Tokyo</h1>
             </div>
           </div>
           <div className="carousel-item">
             <img src={homeImg3} className="d-block" alt="..." id={styles.homePageCarousel} />
             <div className="carousel-caption d-none d-lg-block">
-              <h1 className={styles.text}>Where To Eat In Tokyo</h1>
-              <a>here is iink</a>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img src={homeImg4} className="d-block" alt="..." id={styles.homePageCarousel} />
-            <div className="carousel-caption d-none d-lg-block">
               <h1 className={styles.text}>Stay On Trend With The Latest Tokyo</h1>
-              <a>here is iink</a>
             </div>
           </div>
         </div>
