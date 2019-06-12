@@ -9,6 +9,9 @@ import Locations from './components/Locations/locations';
 import Favorite from './components/Favorite/favorite';
 import SelectedLocation from './components/SelectedLocation/selectedLocation';
 
+
+console.log(`im process: ${process.env.API_KEY}`);
+
 class App extends React.Component {
   constructor() {
     super();

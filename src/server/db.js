@@ -2,6 +2,7 @@ const pg = require('pg');
 const locations = require('./models/locations');
 const url = require('url');
 
+
 var configs;
 
 if (process.env.DATABASE_URL) {

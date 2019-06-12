@@ -2,8 +2,8 @@ const {resolve} = require('path');
 const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const commonConfig = require('./webpack.config.common');
+// const Dotenv = require('dotenv-webpack');
 
 module.exports = merge(commonConfig, {
   mode: 'production',
@@ -29,6 +29,7 @@ module.exports = merge(commonConfig, {
         minifyCSS: true,
         minifyURLs: true
       }
-    })
+    }),
+    // new Dotenv()
   ]
 });

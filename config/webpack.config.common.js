@@ -1,7 +1,7 @@
 const {resolve, join} = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+// const Dotenv = require('dotenv-webpack');
 const IS_DEV = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -73,7 +73,10 @@ module.exports = {
       filename: '[name].css',
       disable: IS_DEV
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV'])
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    // new Dotenv({
+    //   path: path.resolve(__dirname, '.env')
+    // })
   ],
   resolve: {
     modules: ['node_modules', join('src', 'client')],
