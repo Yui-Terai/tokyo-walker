@@ -5,7 +5,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <nav
-        className="navbar navbar-expand-md justify-content-center fixed-top"
+        className="navbar navbar-light navbar-expand-md justify-content-center fixed-top"
         id={styles.navbar}
       >
         <a href="/" className="navbar-brand d-flex w-50 mr-auto" style={{color: 'black'}} id={styles.font2}>
